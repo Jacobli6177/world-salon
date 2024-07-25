@@ -1,67 +1,103 @@
 .create-post {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    overflow: hidden;
-  }
-  
-  .create-post-header {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .create-profile-pic {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .post-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none;
-  }
-  
-  .additional-options-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    margin-left: 10px;
-  }
-  
-  .create-post-footer {
-    display: flex;
-    justify-content: space-between; /* Distribute space evenly */
-    align-items: center;
-    padding: 10px;
-    background-color: #D7F1FF;
-  }
-  
-  .footer-icon-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-icon-button:hover {
-    color: #007bff; /* Change color on hover */
-  }
-  
-  .send-button {
-    font-size: 28px;
-    color: #007bff;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 600px; /* Optional max-width for responsiveness */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between elements */
+  margin-bottom: 12px; /* Space between header and footer */
+}
+
+.create-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensure image fills the circle */
+}
+
+.post-input-wrapper {
+  position: relative;
+  flex-grow: 1; /* Allow the text area to take the available space */
+}
+
+.post-input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* Space for pencil icon */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none; /* Disable resizing */
+  outline: none;
+  box-sizing: border-box; /* Include padding in the element's width */
+  min-height: 50px; /* Ensure consistent height */
+}
+
+.pencil_icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer; /* Indicate interactivity */
+}
+
+.additional-options-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 0; /* Align the icon vertically */
+}
+
+.create-post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #eee; /* Visual separation between header and footer */
+}
+
+.footer-icon-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  gap: 5px; /* Space between icon and text */
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.text {
+  font-size: 14px;
+  color: #555; /* Text color */
+}
+
+.send-button {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.send-button:hover {
+  background-color: #0056b3; /* Darken on hover */
+}

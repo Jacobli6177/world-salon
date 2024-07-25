@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Create_Post.css';
+import { getImageUrl } from "../../../utils";
+
 
 const CreatePost = ({ onPostSubmit }) => {
   const [postContent, setPostContent] = useState('');
@@ -20,23 +22,38 @@ const CreatePost = ({ onPostSubmit }) => {
           alt="User Profile"
           className="create-profile-pic"
         />
+        <div className="post-input-wrapper">
         <textarea
           value={postContent}
           onChange={(e) => setPostContent(e.target.value)}
-          placeholder="What's on your mind?"
+          placeholder="Write something ..."
           className="post-input"
         />
+        <img
+          src={getImageUrl("create_post/pencil_icon.png")}
+          alt="Edit"
+          className="pencil_icon"
+        />
+      </div>
         <button className="additional-options-button">⋯</button>
       </div>
       <div className="create-post-footer">
       <button className="footer-icon-button">
-        <img src="../../assets/create_post/pic_icon.png" className="icon" />
-        C:\Users\Jacob\OneDrive\桌面\world-salon\Community_Page\src\assets\create_post
-        <span></span>
+        <img src= {getImageUrl("create_post/pic_icon.png")} className="icon" />
+        <span className='text'>Photo</span>
       </button>        
-        <button className="footer-icon-button"></button>
-        <button className="footer-icon-button"></button>
-        <button className="footer-icon-button"></button>
+        <button className="footer-icon-button">
+        <img src= {getImageUrl("create_post/video_icon.png")} className="icon" />
+        <span className='text'>Video</span>
+        </button>
+        <button className="footer-icon-button">
+        <img src= {getImageUrl("create_post/event_icon.png")} className="icon" />
+        <span className='text'>Event</span>
+        </button>
+        <button className="footer-icon-button">
+        <img src= {getImageUrl("create_post/document_icon.png")} className="icon" />
+        <span className='text'>Article</span>
+        </button>
         <button className="footer-icon-button send-button" onClick={handlePostSubmit}>
           ➤
         </button>
