@@ -1,109 +1,157 @@
 .post {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-  
-  .post-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-pic {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .post-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .post-actions {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ccc;
-  }
-  
-  .action-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
-  }
-  
-  .action-button:hover {
-    color: #007bff; /* Change color on hover */
-  }
-  
-  .comment-section {
-    padding: 10px;
-  }
-  
-  .comment-input-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .comment-profile-pic {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-  }
-  
-  .comment-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  .mic-button,
-  .image-upload-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    margin-right: 5px;
-  }
-  
-  .submit-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .comments {
-    margin-top: 10px;
-  }
-  
-  .comment {
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px solid #eee;
-  }
-  
+  border: 1px solid #CCCBCB;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #fff;
+  max-width: 606px;
+  height: 613px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-text {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.post-image {
+  width: 600px;
+  height: 300px;
+  object-fit: cover;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}
+
+.comment-section {
+  margin-top: 16px;
+}
+
+.comment-input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.comment-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.comment-profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.icon-button {
+  width: 12px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.comments {
+  margin-top: 10px;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.mic-button{
+  height: 16px;
+  width: 12px;
+}
+
+.saved-button{
+  height: 16px;
+  width: 12px;
+}
+.shared-icon{
+  width: 24px;
+  height: 26px;
+}
+.saved-icon{
+  width: 24px;
+  height: 22px; 
+}

@@ -23,7 +23,7 @@ const PeopleYouKnow = () => {
   return (
     <div className="people-you-know">
       <h2>People You May Know</h2>
-      <div className="people-list">
+      <div className={`people-list ${showAll ? 'show-all' : ''}`}>
         {displayedPeople.map((person) => (
           <div key={person.id} className="person-card">
             <img src={person.profilePic} alt={person.name} className="profile-pic" />

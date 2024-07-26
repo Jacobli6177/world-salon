@@ -12,13 +12,19 @@ import './App.css'
 function App() {
   return (
     <>
-      <div>
-         <Navbar />
-         <Create_Post />
-         <Hashtag />
-         <People />
-         <PostsPage/>
+    <div className="app-container">
+      <Navbar />
+      <div className="main-content">
+        <div className="top-row">
+          <Hashtag className="Hashtag"/>
+          <Create_Post />
+        </div>
+        <div className="bottom-row">
+          <People />
+          <PostsPage />
+        </div>
       </div>
+    </div>
     </>
   )
 }

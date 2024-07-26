@@ -54,7 +54,7 @@ const CreatePost = ({ onPostSubmit }) => {
         <img src= {getImageUrl("create_post/document_icon.png")} className="icon" />
         <span className='text'>Article</span>
         </button>
-        <button className="footer-icon-button send-button" onClick={handlePostSubmit}>
+        <button className="send-button" onClick={handlePostSubmit}>
           ➤
         </button>
       </div>

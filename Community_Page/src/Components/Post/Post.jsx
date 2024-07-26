@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Post.css';
+import { getImageUrl } from '../../../utils';
 
-const Post = ({ username, jobTitle, profilePic, postImage }) => {
+const Post = ({ username, jobTitle, text, profilePic, postImage }) => {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
@@ -29,7 +30,8 @@ const Post = ({ username, jobTitle, profilePic, postImage }) => {
           />
           <div>
             <h4>{username}</h4>
-            <p>{jobTitle}</p>
+            <h5>{jobTitle}</h5>
+            <p className="post-text">{text}</p>
           </div>
         </div>
       </div>
@@ -42,17 +44,19 @@ const Post = ({ username, jobTitle, profilePic, postImage }) => {
         <button className="action-button" onClick={toggleLike}>
           {isLiked ? '❤️' : '🤍'}
         </button>
-        <button className="action-button">🔗</button>
-        <button className="action-button">📌</button>
+        <button className="action-button"> <img src={getImageUrl("post/saved_icon.png")} className="saved-icon"/></button>
+        <button className="action-button"> <img src={getImageUrl("post/share_icon.png")} className="shared-icon"/></button>
       </div>
       <div className="comment-section">
         <form onSubmit={handleCommentSubmit}>
           <div className="comment-input-container">
-            <img
-              src="https://via.placeholder.com/30" // Placeholder for current user profile pic
-              alt="Current User Profile"
-              className="comment-profile-pic"
-            />
+            <div className="comment-icons">
+              <img
+                src="https://via.placeholder.com/30" // Placeholder for current user profile pic
+                alt="Current User Profile"
+                className="comment-profile-pic"
+              />
+            </div>
             <input
               type="text"
               value={comment}
@@ -60,12 +64,9 @@ const Post = ({ username, jobTitle, profilePic, postImage }) => {
               placeholder="Add a comment..."
               className="comment-input"
             />
-            <button type="button" className="mic-button">🎤</button>
-            <button type="button" className="image-upload-button">📷</button>
+            <button type="button"> <img src={getImageUrl("post/mic_icon.png")} className="mic-button"/> </button>
+            <button type="button"><img src={getImageUrl("post/pic_icon.png")} className="saved-button"/></button>
           </div>
-          <button type="submit" className="submit-button">
-            Comment
-          </button>
         </form>
         <div className="comments">
           {comments.map((comment, index) => (
