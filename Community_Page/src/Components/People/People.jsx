@@ -21,9 +21,9 @@ const PeopleYouKnow = () => {
   const displayedPeople = showAll ? peopleData : peopleData.slice(0, 3);
 
   return (
-    <div className="people-you-know">
+    <div className={`people-you-know ${showAll ? 'show-all' : ''}`}>
       <h2>People You May Know</h2>
-      <div className={`people-list ${showAll ? 'show-all' : ''}`}>
+      <div className="people-list">
         {displayedPeople.map((person) => (
           <div key={person.id} className="person-card">
             <img src={person.profilePic} alt={person.name} className="profile-pic" />

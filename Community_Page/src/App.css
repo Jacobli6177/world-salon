@@ -12,34 +12,10 @@
   
   .top-row, .bottom-row {
     display: flex;
-    gap: 180px; /* Space between components */
+    gap: 90px; /* Space between components */
     padding: 20px; /* Padding around the rows */
+    margin-left: 150px;
   }
   .top-row {
     margin-bottom: 20px; /* Space between top and bottom rows */
-  }
-  .Hashtag{
-    height: 163px;
-    width: 346px;
-  }
-  .People{
-    height: 332px;
-    width: 346px;
-  }
-  .Create_Post{
-    width: 608px;
-    height: 163px;
-  }
-  .PostsPage{
-    width: 606px;
-    height: 613.05px;
-  }
-  .bottom-row {
-    margin-top: 20px; /* Space between top and bottom rows */
-  }
-  
-  /* Optional: To control the width of the components */
-  .Hashtag, .Create_Post, .People, .PostsPage {
-    flex: 1; /* Allows the component to grow */
-    max-width: 1000px; /* Optional max-width */
   }
