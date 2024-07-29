@@ -5,6 +5,7 @@ import { getImageUrl } from "../../../utils";
 
 const CreatePost = ({ onPostSubmit }) => {
   const [postContent, setPostContent] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
 
   const handlePostSubmit = (e) => {
     e.preventDefault();
@@ -17,25 +18,28 @@ const CreatePost = ({ onPostSubmit }) => {
   return (
     <div className="create-post">
       <div className="create-post-header">
-        <img
-          src="https://via.placeholder.com/50" // Placeholder for the current user profile pic
-          alt="User Profile"
-          className="create-profile-pic"
-        />
         <div className="post-input-wrapper">
-        <textarea
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
-          placeholder="Write something ..."
-          className="post-input"
-        />
-        <img
-          src={getImageUrl("create_post/pencil_icon.png")}
-          alt="Edit"
-          className="pencil_icon"
-        />
-      </div>
-        <button className="additional-options-button">⋯</button>
+          <img
+            src="https://via.placeholder.com/50" // Placeholder for the current user profile pic
+            alt="User Profile"
+            className="create-profile-pic"
+          />
+          <textarea
+            value={postContent}
+            onChange={(e) => setPostContent(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            placeholder="Write something ..."
+            className="post-input"
+          />
+          {!isFocused && (
+            <img
+              src= {getImageUrl("create_post/pencil_icon.png")} // Placeholder for the pencil icon
+              alt="Edit"
+              className="pencil_icon"
+            />
+          )}
+        </div>
       </div>
       <div className="create-post-footer">
       <button className="footer-icon-button">

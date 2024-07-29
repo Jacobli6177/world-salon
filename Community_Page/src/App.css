@@ -5,6 +5,7 @@
   }
   
   .main-content {
+    margin-top: 120px;
     display: flex;  
     flex-direction: column;
     flex-grow: 1; /* Allows this section to grow and fill available space */
@@ -12,8 +13,8 @@
   
   .top-row, .bottom-row {
     display: flex;
-    gap: 90px; /* Space between components */
-    padding: 5px; /* Padding around the rows */
+    gap: 10px; /* Space between components */
+    padding: 0; /* Padding around the rows */
     margin-left: 150px;
   }
 
