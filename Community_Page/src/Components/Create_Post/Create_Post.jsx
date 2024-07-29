@@ -42,25 +42,25 @@ const CreatePost = ({ onPostSubmit }) => {
         </div>
       </div>
       <div className="create-post-footer">
-      <button className="footer-icon-button">
-        <img src= {getImageUrl("create_post/pic_icon.png")} className="icon" />
-        <span className='text'>Photo</span>
-      </button>        
         <button className="footer-icon-button">
-        <img src= {getImageUrl("create_post/video_icon.png")} className="icon" />
-        <span className='text'>Video</span>
-        </button>
-        <button className="footer-icon-button">
-        <img src= {getImageUrl("create_post/event_icon.png")} className="icon" />
-        <span className='text'>Event</span>
-        </button>
-        <button className="footer-icon-button">
-        <img src= {getImageUrl("create_post/document_icon.png")} className="icon" />
-        <span className='text'>Article</span>
-        </button>
-        <button className="send-button" onClick={handlePostSubmit}>
-          ➤
-        </button>
+          <img src= {getImageUrl("create_post/pic_icon.png")} className="icon" />
+          <span className='text'>Photo</span>
+        </button>        
+          <button className="footer-icon-button">
+          <img src= {getImageUrl("create_post/video_icon.png")} className="icon" />
+          <span className='text'>Video</span>
+          </button>
+          <button className="footer-icon-button">
+          <img src= {getImageUrl("create_post/event_icon.png")} className="icon" />
+          <span className='text'>Event</span>
+          </button>
+          <button className="footer-icon-button">
+          <img src= {getImageUrl("create_post/document_icon.png")} className="icon" />
+          <span className='text'>Article</span>
+          </button>
+          <button className="send-button" onClick={handlePostSubmit}>
+            ➤
+          </button>
       </div>
     </div>
   );
