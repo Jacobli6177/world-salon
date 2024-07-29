@@ -13,9 +13,7 @@
   .top-row, .bottom-row {
     display: flex;
     gap: 90px; /* Space between components */
-    padding: 20px; /* Padding around the rows */
+    padding: 5px; /* Padding around the rows */
     margin-left: 150px;
   }
-  .top-row {
-    margin-bottom: 20px; /* Space between top and bottom rows */
-  }
+
