@@ -23,12 +23,17 @@
   
   .event-popup-close {
     position: absolute;
+    height: 25px;
+    width: 25px;
     top: 10px;
     left: 10px;
     border: none;
     background: none;
-    font-size: 20px;
     cursor: pointer;
+  }
+  .close-button{
+    height: 25px;
+    width: 25px;
   }
   
   .event-list {

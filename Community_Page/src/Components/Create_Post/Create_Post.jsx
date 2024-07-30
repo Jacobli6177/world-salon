@@ -27,28 +27,32 @@ const CreatePost = ({ onPostSubmit }) => {
   // Sample events data
   const events = [
     {
-      image: 'path/to/image1.jpg',
-      topic: 'Event 1',
-      description: 'Description for event 1.',
+      image: getImageUrl("event/event1.png"),
+      topic: 'Unleashing Creativity with AI:',
+      description: 'A Deep Dive into AI in Research.',
     },
     {
-      image: 'path/to/image2.jpg',
-      topic: 'Event 2',
-      description: 'Description for event 2.',
-    },
-    {
-      image: 'path/to/image2.jpg',
-      topic: 'Event 2',
-      description: 'Description for event 2.',
+      image: getImageUrl("event/event2.png"),
+      topic: 'Unleashing Creativity with AI:',
+      description: 'A Deep Dive into AI in Research.',
     },    {
-      image: 'path/to/image2.jpg',
-      topic: 'Event 2',
-      description: 'Description for event 2.',
+      image: getImageUrl("event/event3.png"),
+      topic: 'Unleashing Creativity with AI:',
+      description: 'A Deep Dive into AI in Research.',
     },    {
-      image: 'path/to/image2.jpg',
-      topic: 'Event 2',
-      description: 'Description for event 2.',
+      image: getImageUrl("event/event4.png"),
+      topic: 'Unleashing Creativity with AI:',
+      description: 'A Deep Dive into AI in Research.',
+    },    {
+      image: getImageUrl("event/event5.png"),
+      topic: 'Unleashing Creativity with AI:',
+      description: 'A Deep Dive into AI in Research.',
+    },    {
+      image: getImageUrl("event/event1.png"),
+      topic: 'Unleashing Creativity with AI:',
+      description: 'A Deep Dive into AI in Research.',
     },
+
     
     // Add more events as needed
   ];
