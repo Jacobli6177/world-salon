@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from './Post';
 import './Postspage.css';
+import { getImageUrl } from '../../../utils';
 
 const PostsPage = () => {
   const postsData = [
@@ -8,15 +9,17 @@ const PostsPage = () => {
       username: 'John Doe',
       jobTitle: 'Software Engineer',
       text: '-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-      profilePic: 'https://via.placeholder.com/40',
-      postImage: 'https://via.placeholder.com/600x400',
+      profilePic: getImageUrl("post/profile2.png"),
+      postImage: getImageUrl("post/pic1.png"),
+      current_profile: getImageUrl("create_post/create_post_pic.png"),
     },
     {
       username: 'Jane Smith',
       jobTitle: 'Product Manager',
       text: '-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-      profilePic: 'https://via.placeholder.com/40',
-      postImage: 'https://via.placeholder.com/600x400',
+      profilePic: getImageUrl("post/profile1.png"),
+      postImage: getImageUrl("post/pic2.png"),
+      current_profile: getImageUrl("create_post/create_post_pic.png"),
     },
     // Add more post objects here
   ];
@@ -31,6 +34,7 @@ const PostsPage = () => {
           text={post.text} // Use 'text' here
           profilePic={post.profilePic}
           postImage={post.postImage}
+          current_profile={post.current_profile}
         />
       ))}
     </div>

@@ -12,9 +12,9 @@
   }
   
   .top-row, .bottom-row {
+    justify-content: center;
     display: flex;
     gap: 10px; /* Space between components */
     padding: 0; /* Padding around the rows */
-    margin-left: 150px;
   }
 

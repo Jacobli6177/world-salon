@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Create_Post.css';
 import { getImageUrl } from "../../../utils";
-
+import EventPopup from './EventPopup'; // Import the EventPopup component
 
 const CreatePost = ({ onPostSubmit }) => {
   const [postContent, setPostContent] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const handlePostSubmit = (e) => {
     e.preventDefault();
@@ -15,12 +16,50 @@ const CreatePost = ({ onPostSubmit }) => {
     }
   };
 
+  const handleEventClick = () => {
+    setIsPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
+
+  // Sample events data
+  const events = [
+    {
+      image: 'path/to/image1.jpg',
+      topic: 'Event 1',
+      description: 'Description for event 1.',
+    },
+    {
+      image: 'path/to/image2.jpg',
+      topic: 'Event 2',
+      description: 'Description for event 2.',
+    },
+    {
+      image: 'path/to/image2.jpg',
+      topic: 'Event 2',
+      description: 'Description for event 2.',
+    },    {
+      image: 'path/to/image2.jpg',
+      topic: 'Event 2',
+      description: 'Description for event 2.',
+    },    {
+      image: 'path/to/image2.jpg',
+      topic: 'Event 2',
+      description: 'Description for event 2.',
+    },
+    
+    // Add more events as needed
+  ];
+  
+
   return (
     <div className="create-post">
       <div className="create-post-header">
         <div className="post-input-wrapper">
           <img
-            src="https://via.placeholder.com/50" // Placeholder for the current user profile pic
+            src={getImageUrl("create_post/create_post_pic.png")} // Placeholder for the current user profile pic
             alt="User Profile"
             className="create-profile-pic"
           />
@@ -34,7 +73,7 @@ const CreatePost = ({ onPostSubmit }) => {
           />
           {!isFocused && (
             <img
-              src= {getImageUrl("create_post/pencil_icon.png")} // Placeholder for the pencil icon
+              src={getImageUrl("create_post/pencil_icon.png")} // Placeholder for the pencil icon
               alt="Edit"
               className="pencil_icon"
             />
@@ -43,25 +82,28 @@ const CreatePost = ({ onPostSubmit }) => {
       </div>
       <div className="create-post-footer">
         <button className="footer-icon-button">
-          <img src= {getImageUrl("create_post/pic_icon.png")} className="icon" />
+          <img src={getImageUrl("create_post/pic_icon.png")} className="icon" />
           <span className='text'>Photo</span>
         </button>        
-          <button className="footer-icon-button">
-          <img src= {getImageUrl("create_post/video_icon.png")} className="icon" />
+        <button className="footer-icon-button">
+          <img src={getImageUrl("create_post/video_icon.png")} className="icon" />
           <span className='text'>Video</span>
-          </button>
-          <button className="footer-icon-button">
-          <img src= {getImageUrl("create_post/event_icon.png")} className="icon" />
+        </button>
+        <button className="footer-icon-button" onClick={handleEventClick}>
+          <img src={getImageUrl("create_post/event_icon.png")} className="icon" />
           <span className='text'>Event</span>
-          </button>
-          <button className="footer-icon-button">
-          <img src= {getImageUrl("create_post/document_icon.png")} className="icon" />
+        </button>
+        <button className="footer-icon-button">
+          <img src={getImageUrl("create_post/document_icon.png")} className="icon" />
           <span className='text'>Article</span>
-          </button>
-          <button className="send-button" onClick={handlePostSubmit}>
-            ➤
-          </button>
+        </button>
+        <button className="send-button" onClick={handlePostSubmit}>
+          ➤
+        </button>
       </div>
+      {isPopupVisible && (
+        <EventPopup events={events} onClose={handleClosePopup} />
+      )}
     </div>
   );
 };

@@ -24,6 +24,12 @@
   flex-direction: column;
   gap: 15px;
 }
+.border-container {
+  width: 80%; /* Adjust this value to control the width */
+  border-bottom: 1px solid #eee;
+  margin: 0 auto; /* Center the container horizontally */
+}
+
 
 .person-card {
   width: 251;
