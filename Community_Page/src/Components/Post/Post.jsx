@@ -29,7 +29,7 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
             className="profile-pic"
           />
           <div>
-            <h4 className='Name'>{username}</h4>
+            <h4 className='Name'>{username}</h4> 
             <h5 className='JobTitle'>{jobTitle}</h5>
             <p className="post-text">{text}</p>
             <p className="Read-More"><u>Read More</u></p>
@@ -42,18 +42,22 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
         className="post-image"
       />
       <div className="post-actions">
-        <button className="heart-button" onClick={toggleLike}>
+        <button className="heart-button" onClick={toggleLike} aria-label={isLiked ? 'Unlike' : 'Like'}>
           {isLiked ? '❤️' : '🤍'}
         </button>
-        <button className="action-button"> <img src={getImageUrl("post/saved_icon.png")} className="saved-icon"/></button>
-        <button className="action-button"> <img src={getImageUrl("post/share_icon.png")} className="shared-icon"/></button>
+        <button className="action-button" aria-label="Save">
+          <img src={getImageUrl("post/saved_icon.png")} alt="Save" className="saved-icon"/>
+        </button>
+        <button className="action-button" aria-label="Share">
+          <img src={getImageUrl("post/share_icon.png")} alt="Share" className="shared-icon"/>
+        </button>
       </div>
       <div className="comment-section">
         <form onSubmit={handleCommentSubmit}>
           <div className="comment-input-container">
             <div className="comment-icons">
               <img
-                src={current_profile} // Placeholder for current user profile pic
+                src={current_profile}
                 alt="Current User Profile"
                 className="comment-profile-pic"
               />
@@ -65,21 +69,25 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
               placeholder="Add a comment..."
               className="comment-input"
             />
-            <div className = "icon-buttons">
-            <button type="button"> <img src={getImageUrl("post/mic_icon.png")} className="mic-button"/> </button>
-            <button type="button"><img src={getImageUrl("post/pic_icon.png")} className="pic-button"/></button>
+            <div className="icon-buttons">
+              <button type="button" aria-label="Record Voice">
+                <img src={getImageUrl("post/mic_icon.png")} alt="Record" className="mic-button"/>
+              </button>
+              <button type="button" aria-label="Add Photo">
+                <img src={getImageUrl("post/pic_icon.png")} alt="Add Photo" className="pic-button"/>
+              </button>
             </div>
           </div>
         </form>
         <div className="comments">
-          {comments.map((comment, index) => (
+          {comments.map((commentText, index) => (
             <div key={index} className="comment">
               <img
-                src= {current_profile}
-                alt="User Profile"
+                src={current_profile}
+                alt="Comment User Profile"
                 className="comment-profile-pic"
               />
-              <p>{comment}</p>
+              <p>{commentText}</p>
             </div>
           ))}
         </div>

@@ -3,8 +3,8 @@
   background-color: #FAFAFA;
   max-width: 606px;
   margin-bottom: 20px;
-  height: 613px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .post-header {
@@ -138,7 +138,7 @@
 .icon-buttons {
   display: flex;
   gap: 10px; /* Adjust the gap between mic and pic icons */
-  margin-right: 15px;
+  margin-right: 1px;
 }
 
 .comments {
