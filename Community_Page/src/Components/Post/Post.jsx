@@ -56,17 +56,10 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
         <form onSubmit={handleCommentSubmit}>
           <div className="comment-input-container">
             <div className="comment-icons">
-              <img
-                src={current_profile}
-                alt="Current User Profile"
-                className="comment-profile-pic"
+              <img src={current_profile} alt="Current User Profile" className="comment-profile-pic"
               />
             </div>
-            <input
-              type="text"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              placeholder="Add a comment..."
+            <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Add a comment..."
               className="comment-input"
             />
             <div className="icon-buttons">
