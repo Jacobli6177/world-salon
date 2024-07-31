@@ -63,9 +63,8 @@
   line-height: 16.8px;
   color: #006296;
   margin-top: 20px;
-  position: absolute;
   cursor: pointer;
-  right: 25%;
+  margin-right: 25%;
 }
 
 .post-image {
@@ -133,12 +132,15 @@
   padding: 5px;
   font-size: 14px;
   background-color: #F6F6F6;
+  position: relative;
 }
 
 .icon-buttons {
   display: flex;
   gap: 10px; /* Adjust the gap between mic and pic icons */
   margin-right: 1px;
+  position: relative;
+
 }
 
 .comments {
