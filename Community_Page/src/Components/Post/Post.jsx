@@ -70,11 +70,11 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
               className="comment-input"
             />
             <div className="icon-buttons">
-              <button type="button" aria-label="Record Voice">
-                <img src={getImageUrl("post/mic_icon.png")} alt="Record" className="mic-button"/>
+              <button type="button" aria-label="Record Voice" className="mic-button">
+                <img src={getImageUrl("post/mic_icon.png")} className= "mic" alt="Record"/>
               </button>
-              <button type="button" aria-label="Add Photo">
-                <img src={getImageUrl("post/pic_icon.png")} alt="Add Photo" className="pic-button"/>
+              <button type="button" aria-label="Add Photo" className="pic-button">
+                <img src={getImageUrl("post/pic_icon.png")} className="pic" alt="Add Photo"/>
               </button>
             </div>
           </div>
