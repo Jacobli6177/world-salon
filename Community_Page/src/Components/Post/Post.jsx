@@ -35,6 +35,9 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
     e.preventDefault();
     document.getElementById('image-upload-input').click();
   };
+  const handleSharebutton = () => {
+    
+  }
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -105,13 +108,21 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
         className="post-image"
       />
       <div className="post-actions">
-        <button className="heart-button" onClick={toggleLike} aria-label={isLiked ? 'Unlike' : 'Like'}>
-          {isLiked ? '❤️' : '🤍'}
+        <button className="action-button" onClick={toggleLike} aria-label={isLiked ? 'Unlike' : 'Like'}>
+          <img 
+            src={isLiked ? getImageUrl("post/heart-filled.png") : getImageUrl("post/heart-outline.png")} 
+            alt="Like" 
+            className="heart-button" 
+          />
         </button>
-        <button className={`action-button ${isSaved ? 'saved' : ''}`} aria-label="Save" onClick={toggleSave}>
-          <img src={getImageUrl("post/saved_icon.png")} alt="Save" className="saved-icon"/>
+        <button className="action-button" onClick={toggleSave} aria-label={isSaved ? 'Unsave' : 'Save'}>
+          <img 
+            src={isSaved ? getImageUrl("post/saved-filled.png") : getImageUrl("post/saved-outline.png")} 
+            alt="Save" 
+            className="saved-icon" 
+          />
         </button>
-        <button className="action-button" aria-label="Share" onClick={handleImageUpload}>
+        <button className="action-button" aria-label="Share" onClick={handleSharebutton}>
           <img src={getImageUrl("post/share_icon.png")} alt="Share" className="shared-icon"/>
         </button>
         <input
