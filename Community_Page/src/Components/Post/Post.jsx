@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Post.css';
 import { getImageUrl } from '../../../utils';
+import MoreInfo from './moreinfo';
+import SharePopup from './share';
 
 const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile }) => {
   const [comment, setComment] = useState('');
@@ -9,6 +11,8 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
   const [isSaved, setIsSaved] = useState(false);
   const [readMore, setReadMore] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [share, setShare] = useState(null);
+  const [vertical, setVerticalDots] = useState(false)
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -35,9 +39,21 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
     e.preventDefault();
     document.getElementById('image-upload-input').click();
   };
+
   const handleSharebutton = () => {
-    
-  }
+    setShare(true);
+  };
+  const handleSharePopup = () => {
+    setShare(false);
+  };
+
+  const verticalDots = () => {
+    setVerticalDots(true)
+  };
+
+  const handleVerticalDotsPopUp = () => {
+    setVerticalDots(false)
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -91,7 +107,7 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
                 <h4 className='Name'>{username}</h4> 
                 <h5 className='JobTitle'>{jobTitle}</h5>
               </div>
-              <button className="event-options">⋮</button>
+              <button className="event-options" onclick={verticalDots}>⋮</button>
             </div>
             <p className="post-text">
               {readMore ? text : text.slice(0, 100) + '...'}

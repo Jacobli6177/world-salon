@@ -12,14 +12,34 @@ const peopleData = [
   { id: 7, name: 'Grace Black', job: 'UX Designer', profilePic: 'https://via.placeholder.com/60' },
 ];
 
+const ProfilePopup = ({ person, onClose }) => (
+  <div className="profile-popup">
+    <button className="close-popup" onClick={onClose}>X</button>
+    <img src={person.profilePic} alt={person.name} className="profile-pic" />
+    <h4>{person.name}</h4>
+    <p>{person.job}</p>
+  </div>
+);
+
 const PeopleYouKnow = () => {
   const [showAll, setShowAll] = useState(false);
+  const [people, setPeople] = useState(peopleData);
+  const [popupPerson, setPopupPerson] = useState(null);
 
   const handleSeeAll = () => {
     setShowAll(!showAll);
   };
 
-  const displayedPeople = showAll ? peopleData : peopleData.slice(0, 3);
+  const handleConnect = (person) => {
+    setPopupPerson(person);
+  };
+
+  const handleClosePopup = () => {
+    setPopupPerson(null);
+    setPeople(people.filter(p => p.id !== popupPerson.id));
+  };
+
+  const displayedPeople = showAll ? people : people.slice(0, 3);
 
   return (
     <div className={`people-you-know ${showAll ? 'show-all' : ''}`}>
@@ -32,15 +52,17 @@ const PeopleYouKnow = () => {
               <h4>{person.name}</h4>
               <p>{person.job}</p>
             </div>
-            <button className="connect-button">Connect</button>
+            <button className="connect-button" onClick={() => handleConnect(person)}>Connect</button>
           </div>
         ))}
       </div>
-      <div className="border-container">
-      </div>
+      <div className="border-container"></div>
       <button className="see-all-button" onClick={handleSeeAll}>
         {showAll ? 'See Less' : 'See All'}
       </button>
+      {popupPerson && (
+        <ProfilePopup person={popupPerson} onClose={handleClosePopup} />
+      )}
     </div>
   );
 };
