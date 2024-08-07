@@ -43,6 +43,17 @@
   margin-top: 1px;
   width: 120.13px;
   color: #898384;
+  margin-bottom: 5px;
+}
+
+.user-details {
+  display: flex;
+  gap: 400px;
+}
+
+.event-options {
+  margin: 0;
+  padding: 0;
 }
 
 .post-text {
@@ -196,3 +207,34 @@
   border: none;
   background-color: white;
 }
+
+.action-button.saved .saved-icon {
+  filter: invert(25%) sepia(85%) saturate(7500%) hue-rotate(190deg) brightness(85%) contrast(93%);
+}
+
+.comment-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+}
+
+.comment-image {
+  width: 80%; 
+  height: auto; 
+  margin-top: 5px; 
+}
+
+.uploaded-image-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+}
+
+.uploaded-image-preview img {
+  width: 80%; 
+  height: auto; 
+  margin-top: 5px; 
+}
+
