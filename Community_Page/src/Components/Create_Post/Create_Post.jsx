@@ -102,7 +102,7 @@ const CreatePost = ({ onPostSubmit }) => {
           <span className='text'>Article</span>
         </button>
         <button className="send-button" onClick={handlePostSubmit}>
-          ➤
+          <img src={getImageUrl("create_post/send.png")} className='send_icons'/>
         </button>
       </div>
       {isPopupVisible && (

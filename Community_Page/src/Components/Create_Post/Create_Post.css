@@ -6,7 +6,7 @@ body {
 
 .create-post {
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 16px;
   width: 620px;
   margin-bottom: 18px;
   height: 162px;
@@ -60,8 +60,7 @@ body {
   height: 70px;
   background-color: #D7F1FF;
   border: 1px solid #ccc;
-  border-radius: 8px;
-
+  border-radius: 0px 0px 16px 16px;
 }
 
 .footer-icon-button {
@@ -91,19 +90,23 @@ body {
 }
 
 .send-button {
-  background-color: #007bff;
+  width: 82.13px;
+  background-color: #006296;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0 0 16px 0;
   cursor: pointer;
-  padding: 10px 15px;
-  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 70px;
 }
 
 .send-button:hover {
   background-color: #0056b3;
+}
+
+.send_icons {
+  width: 25.6px;
+  height: 23.29px;
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Post.css';
 import { getImageUrl } from '../../../utils';
 import MoreInfo from './moreinfo';
-import SharePopup from './share';
+// import Share
 
 const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile }) => {
   const [comment, setComment] = useState('');
