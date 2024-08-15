@@ -247,6 +247,6 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Adjust based on button height */
-  right: 0;
+  top: 20%; /* Adjust based on button height */
+  right: 50%;
 }

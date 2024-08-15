@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Post.css';
-import { getImageUrl } from '../../../utils';
 import MoreInfo from './moreinfo';
 import SharePopup from './share';
+import { getImageUrl } from '../../../utils';
 
-const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile }) => {
+const Post = ({ id, username, jobTitle, text, profilePic, postImage, current_profile }) => {
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
@@ -13,7 +13,9 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
   const [uploadedImage, setUploadedImage] = useState(null);
   const [share, setShare] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  
   const dropdownRef = useRef(null);
+  const dropdownButtonRef = useRef(null);
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
 
   const handleImageUpload = (e) => {
     e.preventDefault();
-    document.getElementById('image-upload-input').click();
+    document.getElementById(`image-upload-input-${id}`).click();
   };
 
   const toggleShare = () => {
@@ -86,10 +88,10 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
     }
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
+          !dropdownButtonRef.current.contains(event.target)) {
         setShowDropdown(false);
       }
     };
@@ -113,7 +115,13 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
                 <h4 className="Name">{username}</h4>
                 <h5 className="JobTitle">{jobTitle}</h5>
               </div>
-              <button className="event-options" onClick={toggleDropdown}>⋮</button>
+              <button
+                className="event-options"
+                onClick={toggleDropdown}
+                ref={dropdownButtonRef}
+              >
+                ⋮
+              </button>
               {showDropdown && (
                 <div className="dropdown-menu" ref={dropdownRef}>
                   <MoreInfo onClose={() => setShowDropdown(false)} />
@@ -154,7 +162,7 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
         </button>
         <input
           type="file"
-          id="image-upload-input"
+          id={`image-upload-input-${id}`}
           style={{ display: 'none' }}
           accept="image/*"
           onChange={handleFileChange}
