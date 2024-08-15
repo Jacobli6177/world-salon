@@ -57,6 +57,8 @@
 .event-options {
   margin: 0;
   padding: 0;
+  position: relative; /* Make sure this is the reference for dropdown positioning */
+  cursor: pointer; /* Show pointer cursor on hover */
 }
 
 .post-text {
@@ -239,3 +241,12 @@
   margin-top: 5px; 
 }
 
+.post .event-options {
+  position: relative; /* Important for dropdown positioning */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Adjust based on button height */
+  right: 0;
+}

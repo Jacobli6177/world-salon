@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Post.css';
 import { getImageUrl } from '../../../utils';
 import MoreInfo from './moreinfo';
@@ -12,7 +12,8 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
   const [readMore, setReadMore] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [share, setShare] = useState(false);
-  const [vertical, setVertical] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -44,8 +45,8 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
     setShare(!share);
   };
 
-  const toggleVerticalDots = () => {
-    setVertical(!vertical);
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   const handleFileChange = (e) => {
@@ -85,6 +86,18 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
     }
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
     <div className="post">
       <div className="post-header">
@@ -100,7 +113,12 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
                 <h4 className="Name">{username}</h4>
                 <h5 className="JobTitle">{jobTitle}</h5>
               </div>
-              <button className="event-options" onClick={toggleVerticalDots}>⋮</button>
+              <button className="event-options" onClick={toggleDropdown}>⋮</button>
+              {showDropdown && (
+                <div className="dropdown-menu" ref={dropdownRef}>
+                  <MoreInfo onClose={() => setShowDropdown(false)} />
+                </div>
+              )}
             </div>
             <p className="post-text">
               {readMore ? text : text.slice(0, 100) + '...'}
@@ -184,11 +202,8 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
           ))}
         </div>
       </div>
-      {vertical && (
-        <MoreInfo onClose={toggleVerticalDots} />
-      )}
       {share && (
-        <SharePopup onClose={toggleShare}/>
+        <SharePopup />
       )}
     </div>
   );
