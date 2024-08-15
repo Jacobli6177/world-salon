@@ -35,8 +35,8 @@ const SharePopup = ({ users, onClose, onShare }) => {
             </li>
           ))}
         </ul>
-        <button onClick={handleShare}>Share</button>
-        <button onClick={onClose}>Cancel</button>
+        <button className="share-button" onClick={handleShare}>Share</button>
+        <button className="share-close" onClick={onClose}>Cancel</button>
       </div>
     </div>
   );

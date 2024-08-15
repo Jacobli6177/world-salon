@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Post.css';
 import { getImageUrl } from '../../../utils';
 import MoreInfo from './moreinfo';
-// import Share
+import SharePopup from './share';
 
 const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile }) => {
   const [comment, setComment] = useState('');
@@ -11,8 +11,8 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
   const [isSaved, setIsSaved] = useState(false);
   const [readMore, setReadMore] = useState(false);
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [share, setShare] = useState(null);
-  const [vertical, setVerticalDots] = useState(false)
+  const [share, setShare] = useState(false);
+  const [vertical, setVertical] = useState(false);
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -40,19 +40,12 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
     document.getElementById('image-upload-input').click();
   };
 
-  const handleSharebutton = () => {
-    setShare(true);
-  };
-  const handleSharePopup = () => {
-    setShare(false);
+  const toggleShare = () => {
+    setShare(!share);
   };
 
-  const verticalDots = () => {
-    setVerticalDots(true)
-  };
-
-  const handleVerticalDotsPopUp = () => {
-    setVerticalDots(false)
+  const toggleVerticalDots = () => {
+    setVertical(!vertical);
   };
 
   const handleFileChange = (e) => {
@@ -104,10 +97,10 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
           <div>
             <div className="user-details">
               <div>
-                <h4 className='Name'>{username}</h4> 
-                <h5 className='JobTitle'>{jobTitle}</h5>
+                <h4 className="Name">{username}</h4>
+                <h5 className="JobTitle">{jobTitle}</h5>
               </div>
-              <button className="event-options" onclick={verticalDots}>⋮</button>
+              <button className="event-options" onClick={toggleVerticalDots}>⋮</button>
             </div>
             <p className="post-text">
               {readMore ? text : text.slice(0, 100) + '...'}
@@ -125,26 +118,26 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
       />
       <div className="post-actions">
         <button className="action-button" onClick={toggleLike} aria-label={isLiked ? 'Unlike' : 'Like'}>
-          <img 
-            src={isLiked ? getImageUrl("post/heart-filled.png") : getImageUrl("post/heart-outline.png")} 
-            alt="Like" 
-            className="heart-button" 
+          <img
+            src={isLiked ? getImageUrl("post/heart-filled.png") : getImageUrl("post/heart-outline.png")}
+            alt="Like"
+            className="heart-button"
           />
         </button>
         <button className="action-button" onClick={toggleSave} aria-label={isSaved ? 'Unsave' : 'Save'}>
-          <img 
-            src={isSaved ? getImageUrl("post/saved-filled.png") : getImageUrl("post/saved-outline.png")} 
-            alt="Save" 
-            className="saved-icon" 
+          <img
+            src={isSaved ? getImageUrl("post/saved-filled.png") : getImageUrl("post/saved-outline.png")}
+            alt="Save"
+            className="saved-icon"
           />
         </button>
-        <button className="action-button" aria-label="Share" onClick={handleSharebutton}>
-          <img src={getImageUrl("post/share_icon.png")} alt="Share" className="shared-icon"/>
+        <button className="action-button" aria-label="Share" onClick={toggleShare}>
+          <img src={getImageUrl("post/share_icon.png")} alt="Share" className="shared-icon" />
         </button>
         <input
           type="file"
           id="image-upload-input"
-          style={{ display: 'none' }} 
+          style={{ display: 'none' }}
           accept="image/*"
           onChange={handleFileChange}
         />
@@ -153,7 +146,7 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
         <form onSubmit={handleCommentSubmit}>
           <div className="comment-input-container">
             <div className="comment-icons">
-              <img src={current_profile} alt="Current User Profile" className="comment-profile-pic"/>
+              <img src={current_profile} alt="Current User Profile" className="comment-profile-pic" />
             </div>
             <input
               type="text"
@@ -164,10 +157,10 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
             />
             <div className="icon-buttons">
               <button type="button" aria-label="Record Voice" className="mic-button" onClick={handleMic}>
-                <img src={getImageUrl("post/mic_icon.png")} className="mic" alt="Record"/>
+                <img src={getImageUrl("post/mic_icon.png")} className="mic" alt="Record" />
               </button>
               <button type="button" aria-label="Add Photo" className="pic-button" onClick={handleImageUpload}>
-                <img src={getImageUrl("post/pic_icon.png")} className="pic" alt="Add Photo"/>
+                <img src={getImageUrl("post/pic_icon.png")} className="pic" alt="Add Photo" />
               </button>
             </div>
           </div>
@@ -191,6 +184,12 @@ const Post = ({ username, jobTitle, text, profilePic, postImage, current_profile
           ))}
         </div>
       </div>
+      {vertical && (
+        <MoreInfo onClose={toggleVerticalDots} />
+      )}
+      {share && (
+        <SharePopup onClose={toggleShare}/>
+      )}
     </div>
   );
 };
